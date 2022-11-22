@@ -1,0 +1,44 @@
+.animate-wrap {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  will-change: opacity;
+
+  &--fired {
+    opacity: 1;
+  }
+
+  .builder-editing & {
+    opacity: 1 !important;
+  }
+}
+
+.animate {
+  opacity: 0;
+  will-change: transform, opacity;
+
+  .builder-editing & {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  &.animated {
+    opacity: 1;
+    transition: opacity .675s cubic-bezier(.16,0,.28,1), transform .675s cubic-bezier(.16,0,.28,1);
+  }
+
+  &--fade-up {
+    transform: translateY(60px);
+
+    &.animated {
+      transform: translateY(0);
+    }
+  }
+
+  &--fade-right {
+    transform: translateX(-60px);
+
+    &.animated {
+      transform: translateY(0);
+    }
+  }
+}

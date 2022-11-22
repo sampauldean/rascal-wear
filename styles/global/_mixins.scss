@@ -1,0 +1,48 @@
+@use "sass:math";
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: $sizeValue * 1px;
+	font-size: math.div($sizeValue, 16) * 1rem;
+}
+
+// Breakpoints
+@mixin breakpoint($point) {
+  @if $point == mobile {
+	@media all and (max-width: 480px) { @content; }
+  }
+  @else if $point == lt-tablet {
+	@media all and (max-width: 767px) { @content; }
+  }
+  @else if $point == tablet {
+	@media all and (min-width: 768px) { @content; }
+  }
+  @else if $point == lt-desktop {
+	@media all and (max-width: 1099px) { @content; }
+  }
+  @else if $point == desktop {
+	@media all and (min-width: 1100px) { @content; }
+  }
+  @else if $point == lt-wide {
+	@media all and (max-width: 1279px) { @content; }
+  }
+  @else if $point == wide {
+	@media all and (min-width: 1280px) { @content; }
+  }
+  @else if $point == lt-super {
+	@media all and (max-width: 1599px) { @content; }
+  }
+  @else if $point == super {
+	@media all and (min-width: 1600px) { @content; }
+  }
+  @else {
+	  @media all and (max-width: $point) { @content; }
+  }
+}
+
+// Darkmode
+@mixin darkmode() {
+  .darkmode &, &.darkmode {
+    @content;
+  }
+}

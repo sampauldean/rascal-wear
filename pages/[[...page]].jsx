@@ -6,6 +6,8 @@ import { BuilderComponent, builder, useIsPreviewing, Builder } from '@builder.io
 
 import Header from '../components/header'
 
+// Section Imports
+import ComingSoon from '../components/sections/ComingSoon'
 
 // Initialize the Builder SDK with your organization's API Key
 // Find the API Key on: https://builder.io/account/settings
@@ -72,12 +74,18 @@ export default function Page({ page }) {
       <Header />
 
       {/* Render the Builder page */}
-      <BuilderComponent model="page" content={page} />
+      <BuilderComponent model="page" content={page} options={{ includeRefs: true }} />
 
       <div style={{ padding: 50, textAlign: 'center' }}>
         {/* Put your footer or main layout here */}
-        
       </div>
     </>
   );
 }
+
+Builder.register('insertMenu', {
+  name: 'Page Sections',
+  items: [
+    { name: 'Coming Soon' },
+  ],
+}) 
