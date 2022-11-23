@@ -26,7 +26,7 @@ const ComingSoon = (props) => {
               <Image
                 src={props.image}
                 alt={props.title}
-                width={200}
+                width={300}
                 height={300}
               />
             </div>
