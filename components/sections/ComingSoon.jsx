@@ -21,37 +21,29 @@ const ComingSoon = (props) => {
   return (
     <Animate>
       <section className={style.comingSoon}>
-        <div className={style.comingSoon__container}>
-          {props.logo && (
-            <div ref={myRef} className={style.comingSoon__logo}>
-              <Image
-                src={props.logo}
-                alt="Logo"
-                width={100}
-                height={100}
-              />
-            </div>
-          )}
-          {props.title && (
-            <h1 className={`${style.comingSoon__title} animate animate--fade-up`}>{props.title}</h1>
-          )}
-          {props.teaser && (
-            <div className={style.comingSoon__teaser}>
-              {props.teaser}
-              <FontAwesomeIcon icon={solid('user-secret')} />
-            </div>
-          )}
-          {props.image && (
-            <div className={`${style.comingSoon__scout}`}>
-              <Image
-                src={props.image}
-                alt={props.title}
-                width={300}
-                height={300}
-              />
-            </div>
-          )}
-        </div>
+        {props.logo && (
+          <div ref={myRef} className={style.comingSoon__logo}>
+            <Image
+              src={props.logo}
+              alt="Logo"
+              width={100}
+              height={120}
+            />
+          </div>
+        )}
+        {props.title && (
+          <h1 className={`${style.comingSoon__title} animate animate--fade-up`}>{props.title}</h1>
+        )}
+        {props.image && (
+          <div className={`${style.comingSoon__scout} animate animate--fade-up`}>
+            <Image
+              src={props.image}
+              alt={props.title}
+              width={300}
+              height={300}
+            />
+          </div>
+        )}
       </section>
     </Animate>
   )
@@ -69,10 +61,6 @@ Builder.registerComponent(ComingSoon, {
       name: 'title',
       type: 'string',
       defaultValue: 'Coming Soon',
-    },
-    {
-      name: 'teaser',
-      type: 'text',
     },
     {
       name: 'image',

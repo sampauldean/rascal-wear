@@ -3,15 +3,19 @@
 
 .comingSoon {
   height: 100vh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
 
-  &__container {
-    text-align: center;
+  &__logo {
+    margin-top: 20px;
+  }
+
+  &__title {
     color: white;
     font-family: $font__secondary;
-  }
-  &__title {
     font-size: 5rem;
     font-weight: 700;
 
@@ -31,9 +35,6 @@
   }
 
   &__scout {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+
   }
 }
