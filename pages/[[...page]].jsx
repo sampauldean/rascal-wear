@@ -75,10 +75,6 @@ export default function Page({ page }) {
 
       {/* Render the Builder page */}
       <BuilderComponent model="page" content={page} options={{ includeRefs: true }} />
-
-      <div style={{ padding: 50, textAlign: 'center' }}>
-        {/* Put your footer or main layout here */}
-      </div>
     </>
   );
 }

@@ -13,7 +13,7 @@ const ComingSoon = (props) => {
       <section className={style.comingSoon}>
         <div className={style.comingSoon__container}>
           {props.title && (
-            <h1 className={style.comingSoon__title}>{props.title}</h1>
+            <h1 className={`${style.comingSoon__title} animate animate--fade-up`}>{props.title}</h1>
           )}
           {props.teaser && (
             <div className={style.comingSoon__teaser}>
