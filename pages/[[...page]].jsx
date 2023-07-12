@@ -2,9 +2,10 @@ import { useRouter } from 'next/router';
 import DefaultErrorPage from 'next/error';
 import Head from 'next/head';
 import React from 'react';
+import Client, { createClient } from 'shopify-buy';
 import { BuilderComponent, builder, useIsPreviewing, Builder } from '@builder.io/react';
 
-import Header from '../components/header'
+import Products from '../components/sections/Products';
 
 // Section Imports
 import ComingSoon from '../components/sections/ComingSoon'
@@ -12,6 +13,11 @@ import ComingSoon from '../components/sections/ComingSoon'
 // Initialize the Builder SDK with your organization's API Key
 // Find the API Key on: https://builder.io/account/settings
 builder.init('aa3c766c9465412caf4ac45664fa1857');
+
+const client = Client.buildClient({
+  storefrontAccessToken: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
+  domain: process.env.SHOPIFY_STORE_DOMAIN,
+});
 
 export async function getStaticProps({ params }) {
   // Fetch the first page from Builder that matches the current URL.
@@ -25,9 +31,13 @@ export async function getStaticProps({ params }) {
     })
     .toPromise();
 
+  // Fetch data from Shopify
+  const products = await client.product.fetchAll();
+
   return {
     props: {
       page: page || null,
+      products: JSON.parse(JSON.stringify(products)), // Convert Shopify objects to plain JSON
     },
     revalidate: 5,
   };
@@ -49,7 +59,7 @@ export async function getStaticPaths() {
   };
 }
 
-export default function Page({ page }) {
+export default function Page({ page, products }) {
   const router = useRouter();
   //  This flag indicates if you are viewing the page in the Builder editor.
   const isPreviewing = useIsPreviewing();
@@ -71,10 +81,18 @@ export default function Page({ page }) {
         <title>{page?.data.title}</title>
         <meta name="description" content={page?.data.descripton} />
       </Head>
-      <Header />
 
+      {/* To Do: Add Header Component */}
+      {/* <BuilderComponent content={props.content} model="header" /> */}
+      
       {/* Render the Builder page */}
-      <BuilderComponent model="page" content={page} options={{ includeRefs: true }} />
+      <BuilderComponent
+        model="page"
+        content={page}
+        options={{ includeRefs: true }}
+        data={{ ...page.data, products }}
+      />
+      <Products products={products} />
     </>
   );
 }
@@ -83,5 +101,6 @@ Builder.register('insertMenu', {
   name: 'Page Sections',
   items: [
     { name: 'Coming Soon' },
+    { name: 'Products' },
   ],
 }) 
