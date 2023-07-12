@@ -58,7 +58,7 @@ export async function getStaticPaths() {
   };
 }
 
-export default function Page({ page, products }) {
+export default function Page({ page }) {
   const router = useRouter();
   //  This flag indicates if you are viewing the page in the Builder editor.
   const isPreviewing = useIsPreviewing();
@@ -78,7 +78,7 @@ export default function Page({ page, products }) {
       <Head>
         {/* Add any relevant SEO metadata or open graph tags here */}
         <title>{page?.data.title}</title>
-        <meta name="description" content={page?.data.descripton} />
+        <meta name="description" content={page?.data.description} />
       </Head>
       
       {/* Render the Builder page */}
@@ -86,9 +86,8 @@ export default function Page({ page, products }) {
         model="page"
         content={page}
         options={{ includeRefs: true }}
-        data={{ ...page.data, products }}
+        data={{ ...page.data }}
       />
-      <Products products={products} />
     </>
   );
 }
