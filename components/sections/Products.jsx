@@ -3,7 +3,6 @@ import ProductCard from '../molecules/ProductCard';
 
 import * as style from './Products.module.scss'
 
-
 const Products = (props) => {
   const { products } = props;
 

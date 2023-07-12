@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.builder.io','via.placeholder.com'],
+    domains: ['cdn.builder.io','via.placeholder.com', 'cdn.shopify.com'],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
