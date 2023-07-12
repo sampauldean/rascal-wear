@@ -103,4 +103,4 @@ Builder.register('insertMenu', {
     { name: 'Coming Soon' },
     { name: 'Products' },
   ],
-}) 
+})
