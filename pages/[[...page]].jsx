@@ -5,10 +5,9 @@ import React from 'react';
 import Client, { createClient } from 'shopify-buy';
 import { BuilderComponent, builder, useIsPreviewing, Builder } from '@builder.io/react';
 
-import Products from '../components/sections/Products';
-
 // Section Imports
 import ComingSoon from '../components/sections/ComingSoon'
+import Products from '../components/sections/Products';
 
 // Initialize the Builder SDK with your organization's API Key
 // Find the API Key on: https://builder.io/account/settings
@@ -81,9 +80,6 @@ export default function Page({ page, products }) {
         <title>{page?.data.title}</title>
         <meta name="description" content={page?.data.descripton} />
       </Head>
-
-      {/* To Do: Add Header Component */}
-      {/* <BuilderComponent content={props.content} model="header" /> */}
       
       {/* Render the Builder page */}
       <BuilderComponent
@@ -101,6 +97,5 @@ Builder.register('insertMenu', {
   name: 'Page Sections',
   items: [
     { name: 'Coming Soon' },
-    { name: 'Products' },
   ],
 })

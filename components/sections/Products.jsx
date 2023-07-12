@@ -21,8 +21,3 @@ const Products = (props) => {
 }
 
 export default Products
-
-Builder.registerComponent(Products, {
-  name: 'Products',
-  inputs: [{ name: 'products', type: 'ShopifyData' }],
-});
