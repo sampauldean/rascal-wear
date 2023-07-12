@@ -2,5 +2,42 @@
 @import '/styles/global/mixins';
 
 .Products {
-  display: flex;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  &__card {
+    font-family: $font__main;
+    flex-basis: calc(50% - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 20px;
+    flex-grow: 1;
+
+    & > * {
+      margin: 0;
+    }
+
+    &_title {
+      font-size: 22px;
+    }
+
+    &_description {
+      font-size: 16px;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+  }
 }

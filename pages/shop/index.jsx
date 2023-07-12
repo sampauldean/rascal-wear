@@ -1,5 +1,7 @@
 import Products from '../../components/sections/Products'
+import Animate from '../../components/atoms/Animate'
 import Client from 'shopify-buy';
+import style from "../../components/sections/Products.module.scss"
 
 // Initialize the Shopify SDK
 const client = Client.buildClient({
@@ -22,8 +24,14 @@ export async function getStaticProps() {
 const ShopPage = ({products}) => {
   return (
     <>
-      <div>ShopPage</div>
-      <Products products={products} />
+    <section className={style.Products}>
+      <div className={`container`}>
+        <Animate>
+          <h1 className={`${style.Products__title} animate animate--fade-up heading`}>Shop</h1>
+        <Products products={products} />
+        </Animate>
+      </div>
+    </section>
     </>
   )
 }

@@ -1,3 +1,44 @@
 @import 'global/variables';
 @import 'global/animate';
 @import 'global/mixins';
+
+.container {
+	max-width: 1072px;
+	padding: 0 50px;
+	margin: 0 auto;
+
+  @include breakpoint(lt-tablet) {
+    padding: 0 30px;
+  }
+
+  @include breakpoint(mobile) {
+    padding: 0 20px;
+  }
+
+	&--full {
+		max-width: none;
+	}
+
+  &--xl {
+    max-width: 1440px;
+  }
+
+	&--wide {
+		max-width: 1270px;
+	}
+
+	&--medium {
+		max-width: 970px;
+	}
+
+	&--small {
+		max-width: 820px;
+	}
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 2rem 0;
+  font-family: $font__secondary;
+}
