@@ -5,7 +5,7 @@ import * as style from './ProductCard.module.scss'
 
 const ProductCard = ({ product }) => {
 
-  console.log(product.images[0])
+  console.log('PRODUCT:', product)
 
   return (
     <div className={style.Products__card} key={product.id}>
@@ -14,8 +14,8 @@ const ProductCard = ({ product }) => {
       <Image
         src={product.images[0].src}
         alt={product.images[0].altText}
-        width={200}
-        height={175}
+        width={100}
+        height={100}
         layout="responsive"
       />
 
