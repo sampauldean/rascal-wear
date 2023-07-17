@@ -6,7 +6,11 @@ import * as style from './ProductCard.module.scss'
 const ProductCard = ({ product: { node: product } }) => {
 
   return (
-    <div className={style.Products__card} key={product.id}>
+    <Link
+      href={`/shop/${product.handle}`}
+      className={style.Products__card} 
+      key={product.id}
+    >
       <div className={style.Products__card_text_container}>
         <h3 className={style.Products__card_title}>{product.title}</h3>
         <p className={style.Products__card_description}>{product.description}</p>
@@ -18,7 +22,7 @@ const ProductCard = ({ product: { node: product } }) => {
           fill
         />
       </div>
-    </div>
+    </Link>
 )
 }
 
