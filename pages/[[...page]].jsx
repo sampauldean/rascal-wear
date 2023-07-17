@@ -10,7 +10,6 @@ import ComingSoon from '../components/sections/ComingSoon'
 import Products from '../components/sections/Products';
 
 // Initialize the Builder SDK with your organization's API Key
-// Find the API Key on: https://builder.io/account/settings
 builder.init('aa3c766c9465412caf4ac45664fa1857');
 
 const client = Client.buildClient({
@@ -36,7 +35,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       page: page || null,
-      products: JSON.parse(JSON.stringify(products)), // Convert Shopify objects to plain JSON
+      products: JSON.parse(JSON.stringify(products)),
     },
     revalidate: 5,
   };

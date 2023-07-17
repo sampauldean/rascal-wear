@@ -1,0 +1,44 @@
+@import '/styles/global/variables';
+@import '/styles/global/mixins';
+
+.Products__card {
+  font-family: $font__main;
+  flex-basis: calc(33% - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  background: #fff;
+  border-radius: 5px;
+  flex-grow: 1;
+  color: #000;
+
+  & > * {
+    margin: 0;
+  }
+
+  &_text_container {
+    padding: 20px;
+  }
+
+  &_title {
+    font-size: 24px;
+    letter-spacing: .75px;
+  }
+
+  &_description {
+    font-size: 16px;
+  }
+
+  &_image_container {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      object-fit: cover;
+      border-radius: 0 0 5px 5px;
+    }
+  }
+}

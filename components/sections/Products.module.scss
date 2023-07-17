@@ -4,6 +4,7 @@
 .Products {
   background-color: #000;
   color: #fff;
+  height: 100vh;
 
   &__grid {
     display: flex;
@@ -12,28 +13,7 @@
   }
 
   &__card {
-    font-family: $font__main;
-    flex-basis: calc(50% - 80px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    padding: 20px;
-    flex-grow: 1;
-
-    & > * {
-      margin: 0;
-    }
-
-    &_title {
-      font-size: 22px;
-    }
-
-    &_description {
-      font-size: 16px;
-    }
+    
   }
 
   &__title {
