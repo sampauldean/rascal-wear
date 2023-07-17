@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import DefaultErrorPage from 'next/error';
 import Head from 'next/head';
 import React from 'react';
-import Client, { createClient } from 'shopify-buy';
 import { BuilderComponent, builder, useIsPreviewing, Builder } from '@builder.io/react';
 
 // Section Imports
