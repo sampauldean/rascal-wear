@@ -5,8 +5,6 @@ import * as style from './ProductCard.module.scss'
 
 const ProductCard = ({ product: { node: product } }) => {
 
-  console.log('PRODUCT:', product)
-
   return (
     <div className={style.Products__card} key={product.id}>
       <div className={style.Products__card_text_container}>

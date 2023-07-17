@@ -41,7 +41,7 @@ export async function getProducts() {
   
   try {
     const data = await graphQLClient.request(query);
-    console.log(data); // Log the entire data
+    console.log(data);
     if (!data || !data.products) {
       console.error('No products retrieved');
       return [];
@@ -54,12 +54,11 @@ export async function getProducts() {
 }
 
 export async function getStaticProps() {
-  // Fetch data from Shopify
   const products = await getProducts();
 
   return {
     props: {
-      products: JSON.parse(JSON.stringify(products)), // Convert Shopify objects to plain JSON
+      products: JSON.parse(JSON.stringify(products)),
     },
     revalidate: 5,
   };
