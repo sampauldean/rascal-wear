@@ -12,11 +12,6 @@ import Products from '../components/sections/Products';
 // Initialize the Builder SDK with your organization's API Key
 builder.init('aa3c766c9465412caf4ac45664fa1857');
 
-const client = Client.buildClient({
-  storefrontAccessToken: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
-  domain: process.env.SHOPIFY_STORE_DOMAIN,
-});
-
 export async function getStaticProps({ params }) {
   // Fetch the first page from Builder that matches the current URL.
   // Use the `userAttributes` field for targeting content.
@@ -29,13 +24,9 @@ export async function getStaticProps({ params }) {
     })
     .toPromise();
 
-  // Fetch data from Shopify
-  const products = await client.product.fetchAll();
-
   return {
     props: {
       page: page || null,
-      products: JSON.parse(JSON.stringify(products)),
     },
     revalidate: 5,
   };
@@ -81,12 +72,7 @@ export default function Page({ page }) {
       </Head>
       
       {/* Render the Builder page */}
-      <BuilderComponent
-        model="page"
-        content={page}
-        options={{ includeRefs: true }}
-        data={{ ...page.data }}
-      />
+      <BuilderComponent model="page" content={page} options={{ includeRefs: true }} />
     </>
   );
 }
@@ -95,5 +81,6 @@ Builder.register('insertMenu', {
   name: 'Page Sections',
   items: [
     { name: 'Coming Soon' },
+    { name: 'Products' },
   ],
 })

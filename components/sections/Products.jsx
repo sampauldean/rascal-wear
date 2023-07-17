@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import ProductCard from '../molecules/ProductCard';
 import Animate from '../atoms/Animate';
+import { builder, BuilderComponent, Builder } from '@builder.io/react'
 
 import * as style from './Products.module.scss'
 
@@ -13,6 +13,9 @@ const Products = (props) => {
 
   return (
     <Animate>
+    <div className={`${style.Products} animate animate--fade-up`}>
+    hello
+    </div>
       <div className={`${style.Products__grid} animate animate--fade-up`}>
         {products.map(product => (
           <ProductCard key={product.id} product={product} />
@@ -22,4 +25,14 @@ const Products = (props) => {
   )
 }
 
-export default Products
+Builder.registerComponent(Products, {
+  name: 'Products',
+  inputs: [
+    {
+      name: 'title',
+      type: 'string',
+      defaultValue: 'Coming Soon',
+    },
+  ],
+
+});

@@ -1,9 +1,6 @@
-import React from 'react';
 import { builder, BuilderComponent, Builder } from '@builder.io/react'
 import Animate from '../atoms/Animate'
 import Image from 'next/image'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 
