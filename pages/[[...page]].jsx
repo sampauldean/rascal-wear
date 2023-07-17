@@ -7,7 +7,6 @@ import { BuilderComponent, builder, useIsPreviewing, Builder } from '@builder.io
 
 // Section Imports
 import ComingSoon from '../components/sections/ComingSoon'
-import Products from '../components/sections/Products';
 
 // Initialize the Builder SDK with your organization's API Key
 builder.init('aa3c766c9465412caf4ac45664fa1857');
@@ -81,6 +80,5 @@ Builder.register('insertMenu', {
   name: 'Page Sections',
   items: [
     { name: 'Coming Soon' },
-    { name: 'Products' },
   ],
 })
