@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import ProductCard from '../molecules/ProductCard';
+import Animate from '../atoms/Animate';
 
 import * as style from './Products.module.scss'
 
@@ -11,13 +12,13 @@ const Products = (props) => {
   }
 
   return (
-    <>
-      <div className={style.Products__grid}>
+    <Animate>
+      <div className={`${style.Products__grid} animate animate--fade-up`}>
         {products.map(product => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
-    </>
+    </Animate>
   )
 }
 

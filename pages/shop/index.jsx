@@ -28,8 +28,8 @@ const ShopPage = ({products}) => {
       <div className={`container`}>
         <Animate>
           <h1 className={`${style.Products__title} animate animate--fade-up heading`}>Shop</h1>
-        <Products products={products} />
         </Animate>
+        <Products products={products} />
       </div>
     </section>
     </>
