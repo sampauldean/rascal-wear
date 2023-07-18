@@ -1,12 +1,14 @@
 import React from 'react'
 import '../styles/normalize.css'
 import '../styles/global.scss'
-import Script from 'next/script'
+import {CartProvider} from '../context/cart'
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Component {...pageProps} />
+      <CartProvider>
+        <Component {...pageProps} />
+      </CartProvider>
     </>
   )
 }
