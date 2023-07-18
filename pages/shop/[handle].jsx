@@ -13,7 +13,7 @@ const graphQLClient = new GraphQLClient(endpoint, {
 export async function getStaticPaths() {
   const query = `
     {
-      products(first: 100) {
+      products(first: 50) {
         edges {
           node {
             handle
@@ -62,7 +62,7 @@ export async function getStaticProps({ params }) {
     props: {
       product: data.productByHandle,
     },
-    revalidate: 5,
+    revalidate: 86400,
   };
 }
 

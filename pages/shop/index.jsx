@@ -7,7 +7,6 @@ import { gql, GraphQLClient } from "graphql-request";
 const endpoint = process.env.SHOPIFY_STORE_DOMAIN;
 const token = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
 
-
 const graphQLClient = new GraphQLClient(endpoint, {
   headers: {
     "X-Shopify-Storefront-Access-Token": token,
@@ -41,7 +40,6 @@ export async function getProducts() {
   
   try {
     const data = await graphQLClient.request(query);
-    console.log(data);
     if (!data || !data.products) {
       console.error('No products retrieved');
       return [];
@@ -60,7 +58,7 @@ export async function getStaticProps() {
     props: {
       products: JSON.parse(JSON.stringify(products)),
     },
-    revalidate: 5,
+    revalidate: 86400,
   };
 }
 
